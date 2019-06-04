@@ -39,7 +39,11 @@ func (t Track) Create(w http.ResponseWriter, r *http.Request) {
 	track := &model.Track{}
 
 	utils.ParseJSON(r, track)
+	t.Store.Create(track)
 
-	w.WriteHeader(201)
-	utils.SendJSON(w, track)
+	utils.SendJSON(w, track, 201)
+}
+
+func (t Track) GetAll(w http.ResponseWriter, r *http.Request) {
+	
 }
